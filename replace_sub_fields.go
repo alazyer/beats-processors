@@ -6,6 +6,7 @@ import (
 
 	"github.com/elastic/beats/libbeat/beat"
 	"github.com/elastic/beats/libbeat/common"
+	"github.com/elastic/beats/libbeat/logp"
 	"github.com/elastic/beats/libbeat/processors"
 )
 
@@ -33,6 +34,7 @@ func (r *replaceSubFields) String() string {
 }
 
 func CreateReplaceSubFields(c *common.Config) (processors.Processor, error) {
+	logp.Info("CreateReplaceSubFields processor")
 	config := replaceSubFieldsConfig{}
 	err := c.Unpack(&config)
 	if err != nil {
